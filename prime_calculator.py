@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Prime Number Calculator
-Calculates and displays the first 100 prime numbers.
+Calculates and displays the first 50 prime numbers.
 """
 
 def is_prime(n):
@@ -48,12 +48,12 @@ def get_first_n_primes(n):
     return primes
 
 def main():
-    """Main function to calculate and display the first 100 prime numbers."""
-    print("Calculando los primeros 100 números primos...")
+    """Main function to calculate and display the first 50 prime numbers."""
+    print("Calculando los primeros 50 números primos...")
     print("=" * 50)
     
-    # Calculate the first 100 prime numbers
-    primes = get_first_n_primes(100)
+    # Calculate the first 50 prime numbers
+    primes = get_first_n_primes(50)
     
     # Display the results in a formatted way
     print(f"Los primeros {len(primes)} números primos son:")
