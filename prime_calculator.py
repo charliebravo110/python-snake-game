@@ -1,6 +1,14 @@
 #!/usr/bin/env python3
 """
 # RELEASE NOTES
+# Version: 1.2.0
+# Date: 2025-09-05
+# Changes:
+# - Updated calculation from 50 to 100 prime numbers
+# - Enhanced computational scope for more comprehensive results
+# - Maintained all existing optimizations and error handling
+# - Updated documentation to reflect new calculation range
+
 # Version: 1.1.0
 # Date: 2025-09-05
 # Changes:
@@ -11,7 +19,7 @@
 # - Maintained calculation of first 50 prime numbers
 
 Prime Number Calculator
-Calculates and displays the first 50 prime numbers using an optimized algorithm.
+Calculates and displays the first 100 prime numbers using an optimized algorithm.
 This implementation uses trial division with optimizations for even numbers
 and only checks odd divisors up to the square root of the candidate number.
 """
@@ -91,19 +99,19 @@ def get_first_n_primes(n):
 
 def main():
     """
-    Main function to calculate and display the first 50 prime numbers.
+    Main function to calculate and display the first 100 prime numbers.
     
     This function orchestrates the prime calculation process and provides
     a user-friendly formatted output showing the results in a tabular format
     with 10 numbers per row for optimal readability.
     """
     # Display program header with clear indication of what's being calculated
-    print("Calculando los primeros 50 números primos...")
+    print("Calculando los primeros 100 números primos...")
     print("=" * 50)
     
     try:
-        # Calculate the first 50 prime numbers using our optimized algorithm
-        primes = get_first_n_primes(50)
+        # Calculate the first 100 prime numbers using our optimized algorithm
+        primes = get_first_n_primes(100)
         
         # Display the results header
         print(f"Los primeros {len(primes)} números primos son:")
