@@ -1,6 +1,15 @@
 #!/usr/bin/env python3
 """
 # RELEASE NOTES
+# Version: 1.4.0
+# Date: 2025-09-05
+# Changes:
+# - Added comprehensive security vulnerability assessment
+# - Implemented input validation limits to prevent DoS attacks
+# - Added maximum value constraint (n <= 10000) for resource protection
+# - Enhanced security comments and documentation
+# - Maintained all existing functionality and optimizations
+
 # Version: 1.3.0
 # Date: 2025-09-05
 # Changes:
@@ -91,8 +100,13 @@ def get_first_n_primes(n):
     Time Complexity: O(n * sqrt(p_n)) where p_n is the nth prime
     Space Complexity: O(n) for storing the result list
     """
+    # Security: Input validation to prevent integer overflow and resource exhaustion
     if not isinstance(n, int) or n <= 0:
         raise ValueError("n doit être un entier positif")
+    
+    # Security: Limit maximum value to prevent excessive memory usage and DoS attacks
+    if n > 10000:
+        raise ValueError("n ne peut pas dépasser 10000 pour des raisons de sécurité")
     
     primes = []
     candidate = 2  # Start with the first prime number
