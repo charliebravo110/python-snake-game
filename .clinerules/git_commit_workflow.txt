@@ -17,7 +17,30 @@ WORKFLOW STEPS:
    - Ensure docstrings are present and accurate for all functions and classes
    - Verify that variable names are descriptive and self-documenting
 
-2. CODE OPTIMIZATION PROPOSALS (OPTIONAL)
+2. SECURITY VULNERABILITY ASSESSMENT
+   ----------------------------------
+   - Perform comprehensive security analysis of all code changes
+   - Identify potential security vulnerabilities including:
+     * Input validation weaknesses
+     * SQL injection vulnerabilities
+     * Cross-site scripting (XSS) risks
+     * Authentication and authorization flaws
+     * Insecure data handling or storage
+     * Hardcoded credentials or sensitive information
+     * Unsafe file operations or path traversal risks
+     * Buffer overflow or memory corruption issues
+     * Cryptographic implementation weaknesses
+     * Dependency vulnerabilities
+   - Check for compliance with security best practices:
+     * Principle of least privilege
+     * Defense in depth
+     * Secure coding standards
+     * Data encryption requirements
+   - Document all identified security issues with severity levels
+   - Provide remediation recommendations for each vulnerability
+   - Ensure no security-sensitive information is exposed in logs or error messages
+
+3. CODE OPTIMIZATION PROPOSALS (OPTIONAL)
    ---------------------------------------
    - Analyze the code for potential performance improvements
    - Identify opportunities for:
@@ -30,7 +53,29 @@ WORKFLOW STEPS:
    - Only implement optimizations after explicit developer approval
    - Document the reasoning behind each optimization
 
-3. RELEASE NOTES GENERATION
+4. UNIT TESTS VERIFICATION AND UPDATE
+   ----------------------------------
+   - Analyze if code changes require updates to existing unit tests
+   - Check for changes that affect:
+     * Function signatures or parameters
+     * Input validation rules or error messages
+     * Security constraints or limits
+     * Output formats or return values
+     * New functionality or features
+   - If unit test updates are needed:
+     * Present a detailed analysis of required changes to the developer
+     * Request explicit approval before modifying test files
+     * Update test cases to cover new functionality or changed behavior
+     * Add new test cases for security enhancements or edge cases
+     * Ensure test descriptions and comments are updated accordingly
+   - Execute unit tests to verify all tests pass:
+     * Run the complete test suite
+     * Verify that all existing functionality still works
+     * Confirm that new tests validate the implemented changes
+     * Document any test failures and resolve them before proceeding
+   - If unit tests are updated, stage and commit them separately with descriptive commit message
+
+5. RELEASE NOTES GENERATION
    -------------------------
    - Generate a release note to be added to the head of the main file
    - Release note must include:
@@ -55,7 +100,7 @@ WORKFLOW STEPS:
      # - Improved output formatting
      """
 
-4. GIT COMMIT EXECUTION
+6. GIT COMMIT EXECUTION
    --------------------
    - Stage all modified files using git add
    - Create a descriptive commit message that includes:
@@ -64,6 +109,7 @@ WORKFLOW STEPS:
      * Reference to any related issues or tickets
    - Execute the commit with: git commit -m "message"
    - Verify commit was successful and note the commit hash
+   - If unit tests were updated, ensure they are also committed with appropriate message
 
 COMMIT MESSAGE GUIDELINES:
 =========================
@@ -80,21 +126,30 @@ EXAMPLES OF GOOD COMMIT MESSAGES:
 - "Fix memory leak in data processing function"
 - "Update documentation for new API endpoints"
 - "Refactor authentication module for better security"
+- "Update unit tests for new security validation limits"
 
 QUALITY CHECKLIST:
 ==================
 Before committing, ensure:
 □ Code has been reviewed and commented appropriately
+□ Security vulnerability assessment has been completed
+□ All identified security issues have been addressed or documented
 □ All proposed optimizations have been evaluated
+□ Unit tests have been verified and updated if necessary
+□ All unit tests pass successfully
+□ Unit test updates have been approved by developer (if applicable)
 □ Release notes have been generated and added
-□ All tests pass (if applicable)
 □ No debugging code or console.log statements remain
 □ Code follows project style guidelines
 □ Documentation is up to date
+□ No sensitive information is exposed in the code
 
 NOTES:
 ======
 - This workflow should be followed for all code changes, regardless of size
 - Optimization proposals are suggestions only and require developer approval
+- Unit test modifications require explicit developer approval before implementation
 - Version numbers should be consistent across the project
 - Always test the code after implementing any changes before committing
+- Unit tests should be committed separately from main code changes when possible
+- Each commit should have a clear, descriptive message explaining the changes made
