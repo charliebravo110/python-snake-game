@@ -1,6 +1,14 @@
 #!/usr/bin/env python3
 """
 # RELEASE NOTES
+# Version: 1.3.0
+# Date: 2025-09-05
+# Changes:
+# - Translated all user-facing literals from Spanish to French
+# - Updated output messages and error handling to French language
+# - Maintained all existing functionality and optimizations
+# - Enhanced internationalization support
+
 # Version: 1.2.0
 # Date: 2025-09-05
 # Changes:
@@ -84,7 +92,7 @@ def get_first_n_primes(n):
     Space Complexity: O(n) for storing the result list
     """
     if not isinstance(n, int) or n <= 0:
-        raise ValueError("n must be a positive integer")
+        raise ValueError("n doit être un entier positif")
     
     primes = []
     candidate = 2  # Start with the first prime number
@@ -106,7 +114,7 @@ def main():
     with 10 numbers per row for optimal readability.
     """
     # Display program header with clear indication of what's being calculated
-    print("Calculando los primeros 100 números primos...")
+    print("Calcul des 100 premiers nombres premiers...")
     print("=" * 50)
     
     try:
@@ -114,7 +122,7 @@ def main():
         primes = get_first_n_primes(100)
         
         # Display the results header
-        print(f"Los primeros {len(primes)} números primos son:")
+        print(f"Les {len(primes)} premiers nombres premiers sont :")
         print("-" * 50)
         
         # Print 10 numbers per line for better readability and organization
@@ -126,13 +134,13 @@ def main():
         
         # Display summary statistics
         print("-" * 50)
-        print(f"El número primo más grande encontrado es: {primes[-1]}")
-        print(f"Total de números primos calculados: {len(primes)}")
+        print(f"Le plus grand nombre premier trouvé est : {primes[-1]}")
+        print(f"Total des nombres premiers calculés : {len(primes)}")
         
     except ValueError as e:
-        print(f"Error: {e}")
+        print(f"Erreur : {e}")
     except Exception as e:
-        print(f"Error inesperado: {e}")
+        print(f"Erreur inattendue : {e}")
 
 if __name__ == "__main__":
     main()
