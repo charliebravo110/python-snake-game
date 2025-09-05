@@ -1,0 +1,100 @@
+GIT COMMIT WORKFLOW
+===================
+
+This document describes the standardized workflow to be followed when committing new changes to the GIT repository.
+
+WORKFLOW STEPS:
+===============
+
+1. CODE REVIEW AND COMMENTS
+   -------------------------
+   - Review all code changes for clarity and maintainability
+   - Add or update comments where necessary to explain:
+     * Complex algorithms or logic
+     * Function purposes and parameters
+     * Important business rules or constraints
+     * Any non-obvious implementation decisions
+   - Ensure docstrings are present and accurate for all functions and classes
+   - Verify that variable names are descriptive and self-documenting
+
+2. CODE OPTIMIZATION PROPOSALS (OPTIONAL)
+   ---------------------------------------
+   - Analyze the code for potential performance improvements
+   - Identify opportunities for:
+     * Algorithm optimization
+     * Memory usage reduction
+     * Code simplification
+     * Better error handling
+     * Improved readability
+   - Present optimization suggestions to the developer for approval
+   - Only implement optimizations after explicit developer approval
+   - Document the reasoning behind each optimization
+
+3. RELEASE NOTES GENERATION
+   -------------------------
+   - Generate a release note to be added to the head of the main file
+   - Release note must include:
+     * Version number (automatically incremented from previous version)
+     * Date of release
+     * Summary of changes made
+     * New features added
+     * Bug fixes implemented
+     * Breaking changes (if any)
+   - Version numbering follows semantic versioning (MAJOR.MINOR.PATCH):
+     * MAJOR: Breaking changes or significant new functionality
+     * MINOR: New features that are backward compatible
+     * PATCH: Bug fixes and minor improvements
+   - Format example:
+     """
+     # RELEASE NOTES
+     # Version: 1.2.0
+     # Date: 2025-09-05
+     # Changes:
+     # - Modified prime calculation from 100 to 50 numbers
+     # - Updated documentation and comments
+     # - Improved output formatting
+     """
+
+4. GIT COMMIT EXECUTION
+   --------------------
+   - Stage all modified files using git add
+   - Create a descriptive commit message that includes:
+     * Brief summary of changes (50 characters or less)
+     * Detailed description if necessary
+     * Reference to any related issues or tickets
+   - Execute the commit with: git commit -m "message"
+   - Verify commit was successful and note the commit hash
+
+COMMIT MESSAGE GUIDELINES:
+=========================
+- Use imperative mood ("Add feature" not "Added feature")
+- Capitalize the first letter
+- No period at the end of the subject line
+- Separate subject from body with a blank line
+- Wrap body at 72 characters
+- Use body to explain what and why, not how
+
+EXAMPLES OF GOOD COMMIT MESSAGES:
+================================
+- "Add prime number calculator with configurable count"
+- "Fix memory leak in data processing function"
+- "Update documentation for new API endpoints"
+- "Refactor authentication module for better security"
+
+QUALITY CHECKLIST:
+==================
+Before committing, ensure:
+□ Code has been reviewed and commented appropriately
+□ All proposed optimizations have been evaluated
+□ Release notes have been generated and added
+□ All tests pass (if applicable)
+□ No debugging code or console.log statements remain
+□ Code follows project style guidelines
+□ Documentation is up to date
+
+NOTES:
+======
+- This workflow should be followed for all code changes, regardless of size
+- Optimization proposals are suggestions only and require developer approval
+- Version numbers should be consistent across the project
+- Always test the code after implementing any changes before committing
